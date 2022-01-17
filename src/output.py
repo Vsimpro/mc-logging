@@ -3,7 +3,7 @@ import json
 # Global variables
 
 # .json structure
-online_status = dict()
+online_status = list()
 server_status = {"Status":0,"player_status":online_status}
 
 def create_json(line,path):
@@ -23,10 +23,10 @@ def create_json(line,path):
         action = line.split(" ")[4]
 
         if action == "joined":
-            online_status[player] = "ONLINE"
+            online_status.append(player)
 
         if action == "left":
-            online_status[player] = "OFFLINE"
+            online_status.remove(player)
 
     
     with open(f"{path}server_status.json","w+") as file:
