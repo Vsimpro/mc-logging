@@ -4,7 +4,7 @@ import json
 
 # .json structure
 online_status = list()
-server_status = {"Status":0,"player_status":online_status}
+server_status = {"Status":0,"players":online_status}
 
 def create_json(line,path):
     global server_status
